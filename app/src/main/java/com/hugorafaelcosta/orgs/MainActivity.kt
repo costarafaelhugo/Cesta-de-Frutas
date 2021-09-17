@@ -4,6 +4,8 @@ import android.app.Activity
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
+import com.hugorafaelcosta.orgs.ui.recyclerview.adapter.ListaProdutosAdapater
 
 class MainActivity : Activity() {
 
@@ -18,5 +20,8 @@ class MainActivity : Activity() {
 
         val valor = findViewById<TextView>(R.id.valor)
         valor.text = "R$ 19.95"
+
+        val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
+        recyclerView.adapter = ListaProdutosAdapater()
     }
 }
