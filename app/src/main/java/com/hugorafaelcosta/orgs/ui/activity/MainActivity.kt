@@ -1,5 +1,6 @@
 package com.hugorafaelcosta.orgs.ui.activity
 
+import androidx.appcompat.app.AppCompatActivity
 import android.app.Activity
 import android.os.Bundle
 import android.widget.TextView
