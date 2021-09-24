@@ -9,26 +9,26 @@ import androidx.recyclerview.widget.RecyclerView
 import com.hugorafaelcosta.orgs.R
 import com.hugorafaelcosta.orgs.model.Produto
 
-class ListaProdutosAdapater(
+class ListaProdutosAdapter(
     private val context: Context,
-    private val produtos: List<Produto>) :
-    RecyclerView.Adapter<ListaProdutosAdapater.ViewHolder>() {
+    produtos: List<Produto>
+) : RecyclerView.Adapter<ListaProdutosAdapter.ViewHolder>() {
 
-    class ViewHolder (view : View) : RecyclerView.ViewHolder(view) {
+    private val produtos = produtos.toMutableList()
+
+    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+
         fun vincula(produto: Produto) {
-            val nome =itemView.findViewById<TextView>(R.id.nome)
+            val nome = itemView.findViewById<TextView>(R.id.produto_item_nome)
             nome.text = produto.nome
-            val descricao = itemView.findViewById<TextView>(R.id.descricao)
+            val descricao = itemView.findViewById<TextView>(R.id.produto_item_descricao)
             descricao.text = produto.descricao
-            val valor = itemView.findViewById<TextView>(R.id.valor)
+            val valor = itemView.findViewById<TextView>(R.id.produto_item_valor)
             valor.text = produto.valor.toPlainString()
         }
+
     }
 
-
-    /* É o responsável por criar a referência que vai pegar  a view que a gente quer
-    apresentar em nosso recycler view e também fazer o processo de binding
-      */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(context)
         val view = inflater.inflate(R.layout.produto_item, parent, false)
@@ -36,11 +36,18 @@ class ListaProdutosAdapater(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-       val produto = produtos[position]
+        val produto = produtos[position]
         holder.vincula(produto)
     }
 
     override fun getItemCount(): Int = produtos.size
+
+    fun atualiza(produtos: List<Produto>) {
+        this.produtos.clear()
+        this.produtos.addAll(produtos)
+        notifyDataSetChanged()
     }
+
+}
 
 

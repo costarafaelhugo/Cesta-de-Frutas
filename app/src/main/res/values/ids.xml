@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="produto_item_nome" type="id">Nome</item>
+    <item name="produto_item_descricao" type="id">Descriçao</item>
+    <item name="produto_item_valor" type="id">Valor</item>
+    <item name="activity_formulario_produto_nome" type="id">Produto Nome</item>
+    <item name="activity_formulario_produto_descricao" type="id">Produto Descriçao</item>
+    <item name="activity_formulario_produto_valor" type="id">Produto Valor</item>
+    <item name="activity_formulario_produto_botao_salvar" type="id">botaosalvar</item>
+    <item name="activity_lista_produtos_fab" type="id" />
+</resources>
